@@ -16,10 +16,15 @@
         <h3>Welcome to Paul's Pizza Parlor<h3> 
         <p>Welcome to Paul's Pizzeria, we source the finest ingredients from Europe. <br>
         All our pizzas are made with the finest ingredients.</p>
-        <!--Order button creates an empty pizza object-->
-        <div id = "begin-order-button">
-          <button id = "begin-order" value = "begin-order">Place Order</button>
-        </div>
+        <!--Begin order area creates an empty pizza object-->
+
+        <form id = "phoneNumber">
+          <label for="phone">Enter your phone number to begin order:</label><br>
+          <input type="text" required id="phone" name="phone"><br>
+          <div id = "begin-order-button">
+            <button id = "begin-order" value = "begin-order">Begin Order</button>
+          </div>
+        </form> 
       </div>
       
       <!--Order Form (hidden until user clicks on order now)-->
@@ -33,7 +38,7 @@
           <label for="medium">Medium 25" $17.50</label><br>
           <input type="radio" required id="pizzaSize" name="pizzaSize" value="large">
           <label for="large">Large 30" $20.50</label><br> 
-          <p>- All pizzas come with pepperoni and house veggies free of charge -</p>
+          <p>- All pizzas come with pepperoni, mozarella cheese, and house veggies free of extra charge -</p>
         </div> 
         <!--Select Base-->
         <div id = "select-pizza-base">
@@ -50,17 +55,17 @@
           <div id = "select-pizza-base">
             <p>Choose your toppings</p>
             <input type="radio" required id="pizzaSize" name="pizzaSize" value="mushrooms">
-            <label for="pesto">Mushrooms +$1.99</label><br>
+            <label for="mushrooms">Mushrooms +$1.99</label><br>
             <input type="radio" required id="pizzaSize" name="pizzaBase" value="specialtyVeggies">
-            <label for="tomato">Specialty Veggies(Based on Season) +$2.50</label><br>
+            <label for="specialtyVeggies">Specialty Veggies(Based on Season) +$2.50</label><br>
             <input type="radio" required id="pizzaSize" name="pizzaSize" value="anchovies">
-            <label for="cheese">Anchovies +$3.99</label><br>
+            <label for="anchovies">Anchovies +$3.99</label><br>
             <input type="radio" required id="pizzaSize" name="pizzaSize" value="bacon">
-            <label for="cheese">Bacon +$3.99</label><br>
+            <label for="bacon">Bacon +$3.99</label><br>
             <input type="radio" required id="pizzaSize" name="pizzaSize" value="mixMeats">
-            <label for="cheese">Specialty Meats (Proscuitto, Honey Ham, Beef) +$4.99</label><br> 
+            <label for="mixMeats">Specialty Meats (Proscuitto, Honey Ham, Beef) +$4.99</label><br> 
             <input type="radio" required id="pizzaSize" name="pizzaSize" value="extraCheese">
-            <label for="cheese">Cheese +$1.99</label><br> 
+            <label for="extraCheese">Extra Cheese +$1.99</label><br> 
           </div>
         </div>
         <!--Finalize Order Area (Hidden until all fields are selected)-->
