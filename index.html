@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Paul's Pizza</title>
+    <script src="js/scripts.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class = "wrapper">
+
+      <!--Order Prompt Area-->
+      <div id = "header-box">
+        <h3>Welcome to Paul's Pizza Parlor<h3> 
+        <p>Welcome to Paul's Pizzeria, we source the finest ingredients from Europe. <br>
+        All our pizzas are made with the finest ingredients.</p>
+        <!--Order button creates an empty pizza object-->
+        <div id = "begin-order-button">
+          <button id = "begin-order" value = "begin-order">Place Order</button>
+        </div>
+      </div>
+      
+      <!--Order Form (hidden until user clicks on order now)-->
+      <div id = "order-form">
+        <!--Select Size-->
+        <div id = "select-pizza-size">
+          <p>Choose your size</p>
+          <input type="radio" required id="pizzaSize" name="pizzaSize" value="small">
+          <label for="small">Regular 15" $15.00</label><br>
+          <input type="radio" required id="pizzaSize" name="pizzaSize" value="medium">
+          <label for="medium">Medium 25" $17.50</label><br>
+          <input type="radio" required id="pizzaSize" name="pizzaSize" value="large">
+          <label for="large">Large 30" $20.50</label><br> 
+          <p>- All pizzas come with pepperoni and house veggies free of charge -</p>
+        </div> 
+        <!--Select Base-->
+        <div id = "select-pizza-base">
+          <p>Choose your base</p>
+          <input type="radio" required id="pizzaSize" name="pizzaBase" value="tomato">
+          <label for="tomato">Tomato +$0.00</label><br>
+          <input type="radio" required id="pizzaSize" name="pizzaSize" value="pesto">
+          <label for="pesto">Pesto +$3.99</label><br>
+          <input type="radio" required id="pizzaSize" name="pizzaSize" value="cheese">
+          <label for="cheese">Cheese +$4.99</label><br>
+        </div>
+        <!--Select Toppings--> 
+        <div id = "select-pizza-toppings">
+          <div id = "select-pizza-base">
+            <p>Choose your toppings</p>
+            <input type="radio" required id="pizzaSize" name="pizzaSize" value="mushrooms">
+            <label for="pesto">Mushrooms +$1.99</label><br>
+            <input type="radio" required id="pizzaSize" name="pizzaBase" value="specialtyVeggies">
+            <label for="tomato">Specialty Veggies(Based on Season) +$2.50</label><br>
+            <input type="radio" required id="pizzaSize" name="pizzaSize" value="anchovies">
+            <label for="cheese">Anchovies +$3.99</label><br>
+            <input type="radio" required id="pizzaSize" name="pizzaSize" value="bacon">
+            <label for="cheese">Bacon +$3.99</label><br>
+            <input type="radio" required id="pizzaSize" name="pizzaSize" value="mixMeats">
+            <label for="cheese">Specialty Meats (Proscuitto, Honey Ham, Beef) +$4.99</label><br> 
+            <input type="radio" required id="pizzaSize" name="pizzaSize" value="extraCheese">
+            <label for="cheese">Cheese +$1.99</label><br> 
+          </div>
+        </div>
+        <!--Finalize Order Area (Hidden until all fields are selected)-->
+        <div id = "finalize order area">
+          <div id =  "finish-order-button"> 
+            <!--Summary of your order-->
+            <h2>Order Summary</h2>
+            <ul> 
+              <p>Pizza Size:</p><p id = "pizzaSize"></p><br>
+              <p>Pizza Base:</p><p id = "pizzaBase"></p><br>
+              <p>Pizza Toppings</p><p id = "pizzaToppings"></p><br> 
+            </ul>
+            <h2>Your Total Is</h2><p id = "orderTotal"></p><br>
+            <button id = "finish-order" value = "finish-order">Checkout</button><br> 
+          </div>
+        </div>
+
+      </div>
+
+      <!--Total Area--> 
+
+    </div>
+  </body>
+</html>
