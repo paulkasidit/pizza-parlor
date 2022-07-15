@@ -36,6 +36,16 @@ Pizza.prototype.buildOrder = function(size, base, toppings){
   this.toppings = toppings;  
 } 
 
+Pizza.prototype.calculateTotal = function(newOrder){
+  size = this.size; //accessing all object properties in order to calculate total  
+  base = this.base;  
+  toppings = this.toppings; 
+  total = this.total;  
+  
+  console.log(size) 
+
+
+}
 
 //UI Logic 
 function createOrder(event) { //creates Pizza Object with inputted phone number as id,
@@ -53,15 +63,15 @@ function createOrder(event) { //creates Pizza Object with inputted phone number 
   } 
 
   let newOrder = new Pizza(phoneNumber); //assigns phone number as id for pizza object
-  newOrder.buildOrder(size,base,selectedToppings) //assigns selected values to keys of object
+  newOrder.buildOrder(size,base,selectedToppings); //assigns selected values to keys of object
 
   console.log(newOrder); 
-
+  
   return newOrder;
 }
 
-function finalizeOrder(newOrder){ 
-  
+function finalizeOrder(newOrder){  //UI function to take the bult order and output the total sum of all goods. 
+   
 }
 
 
