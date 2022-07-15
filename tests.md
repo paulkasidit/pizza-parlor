@@ -9,6 +9,8 @@
   expect: 
   pizza1.id = 8054444444 (int) 
 
+    --PASS-- 
+    
   //Build Order Function 
   describe: Pizza.protoype.buildOrder(): 
 
