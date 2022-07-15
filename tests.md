@@ -1,6 +1,5 @@
 //Business Logic  
   //Object Constructor 
-
   describe: Pizza  
   code: let pizza1 = new Pizza(); 
   expect: pizza1 = {} 
