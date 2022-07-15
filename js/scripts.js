@@ -31,7 +31,7 @@ function Pizza (phoneNumber) {
 } 
 
 //UI Logic 
-function createOrder(event) { //creates Pizza Object and 
+function createOrder(event) { //creates Pizza Object 
 
   event.preventDefault();  
 
@@ -42,6 +42,8 @@ function createOrder(event) { //creates Pizza Object and
 
   return newOrder;
 }
+
+Pizza.protupe
 
 window.addEventListener("load", function() {
   event.preventDefault(); 
