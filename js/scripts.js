@@ -1,5 +1,4 @@
 //Business Logic 
-
 //dict for pizza sizes
 const pizzaSize =  { 
   'small': 0.00,
@@ -24,14 +23,30 @@ const pizzaToppings = {
 
 //Object Constructor Function for Pizza object
 function Pizza (phoneNumber) { 
-  this.id = phoneNumber 
-  this.size = []; 
-  this.base = [];
+  this.id = phoneNumber;
+  this.size = ""; //one possible choice
+  this.base = ""; //one possible choice
   this.toppings = []; 
   this.total = 15.00; //base price is 15.00 dollars 
 } 
 
 //UI Logic 
-function handleFormSubmission(event) { 
-  
+function createOrder(event) { //creates Pizza Object and 
+
+  event.preventDefault();  
+
+  const phoneNumber = parseInt(document.getElementById('phone').value); 
+  let newOrder = new Pizza(phoneNumber); //assigns phone number as id for pizza object
+
+  console.log(newOrder); 
+
+  return newOrder;
 }
+
+window.addEventListener("load", function() {
+  event.preventDefault(); 
+
+  let beginOrderForm = document.getElementById("beginOrder"); 
+  beginOrderForm.addEventListener("submit", createOrder) 
+
+})
