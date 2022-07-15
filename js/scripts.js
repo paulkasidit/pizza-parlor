@@ -30,25 +30,48 @@ function Pizza (phoneNumber) {
   this.total = 15.00; //base price is 15.00 dollars 
 } 
 
-//UI Logic 
-function createOrder(event) { //creates Pizza Object 
+Pizza.prototype.buildOrder = function(size, base, toppings){
+  this.size = size;  
+  this.base = base; 
+  this.toppings = toppings;  
+} 
 
+
+//UI Logic 
+function createOrder(event) { //creates Pizza Object with inputted phone number as id,
+                              // upon order form submission, values are assigned to respective properties and total is shown. 
   event.preventDefault();  
 
   const phoneNumber = parseInt(document.getElementById('phone').value); 
+  const size =  document.querySelector("input[name='pizzaSize']:checked").value;
+  const base =  document.querySelector("input[name='pizzaBase']:checked").value;
+
+  let selectedToppings = []; 
+  let toppings = document.querySelectorAll('input[type="checkbox"]:checked'); //iterate through all checked boxes in the toppings field
+  for (var topping of toppings){ 
+    selectedToppings.push(topping.value); //checked values are push to the previously declared selectedToppings array. 
+  } 
+
   let newOrder = new Pizza(phoneNumber); //assigns phone number as id for pizza object
+  newOrder.buildOrder(size,base,selectedToppings) //assigns selected values to keys of object
 
   console.log(newOrder); 
 
   return newOrder;
 }
 
-Pizza.protupe
+function finalizeOrder(newOrder){ 
+  
+}
+
 
 window.addEventListener("load", function() {
   event.preventDefault(); 
 
   let beginOrderForm = document.getElementById("beginOrder"); 
-  beginOrderForm.addEventListener("submit", createOrder) 
+  beginOrderForm.addEventListener("submit", createOrder);  
+
+  let finalizeOrderForm = document.getElementById("finalizeOrder"); 
+  finalizeOrderForm.addEventListener("submit", finalizeOrder);
 
 })

@@ -10,7 +10,7 @@
   pizza1.id = 8054444444 (int) 
 
     --PASS-- 
-    
+
   //Build Order Function 
   describe: Pizza.protoype.buildOrder(): 
 
@@ -32,6 +32,8 @@
     total: 15.00; 
     } //supposed that the customer had selected all of these values in the form, they will be assigned to their respoective keys. 
 
+    --PASS-- 
+    
   //Calculate Total Function
   describe: Pizza.prototype.calculateTotal 
 
