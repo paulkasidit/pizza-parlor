@@ -1,18 +1,18 @@
 //Business Logic 
-//dict for pizza sizes
-const pizzaSize =  { 
+  //dict for pizza sizes
+const pizzaSizePrices =  { 
   'small': 0.00,
   'medium': 2.50, // full price = 17.50 
   'large': 5.50, //full price = 20.50
 } 
 //dict for pizza base
-const pizzaBase = { 
+const pizzaBasePrices = { 
   'tomato': 0.00, 
   'pesto': 3.99,
   'cheese': 4.99, 
 }
 //dict for pizza toppings
-const pizzaToppings = { 
+const pizzaToppingPrices = { 
   'mushrooms': 1.99, 
   'specialtyVeggies': 2.50, 
   'anchovies': 3.99, 
@@ -33,20 +33,50 @@ function Pizza (phoneNumber) {
 Pizza.prototype.buildOrder = function(size, base, toppings){
   this.size = size;  
   this.base = base; 
-  this.toppings = toppings;  
+  this.toppings.push(toppings);  
 } 
 
-Pizza.prototype.calculateTotal = function(newOrder){
-  size = this.size; //accessing all object properties in order to calculate total  
-  base = this.base;  
-  toppings = this.toppings; 
-  total = this.total;  
-  
-  console.log(size) 
+function calculateTotal(Pizza) { 
+  const size = Pizza.size;
+  const base = Pizza.base;
+  const toppings = Pizza.toppings;
+  let total = Pizza.total; 
 
+  for (const [key,value] of Object.entries(pizzaSizePrices)){ //determing charges for size
+    if (key === size){
+      total += value; 
+    } else { 
+      total += 0; 
+    }
+  }
 
+  for (const [key,value] of Object.entries(pizzaBasePrices)){ //determing charges for base
+    if (key === base){
+      total += value; 
+    } else { 
+      total += 0; 
+    }
+  }
+
+  for (const [key,value] of Object.entries(pizzaToppingPrices)){ //determing charges for toppings
+    if (key === size){
+      total += value; 
+    } else { 
+      total += 0; 
+    }
+  }
+
+  for (const [key,value] of Object.entries(pizzaToppingPrices)){
+    for (topping of toppings){
+      if(topping === key){
+        total += value; 
+      } else {
+        total += 0; 
+      }
+    }
+    
+  return total; 
 }
-
 //UI Logic 
 function createOrder(event) { //creates Pizza Object with inputted phone number as id,
                               // upon order form submission, values are assigned to respective properties and total is shown. 
@@ -62,18 +92,16 @@ function createOrder(event) { //creates Pizza Object with inputted phone number 
     selectedToppings.push(topping.value); //checked values are push to the previously declared selectedToppings array. 
   } 
 
-  let newOrder = new Pizza(phoneNumber); //assigns phone number as id for pizza object
-  newOrder.buildOrder(size,base,selectedToppings); //assigns selected values to keys of object
+  let newOrder = new Pizza(phoneNumber)
+  buildOrder(size,base,selectedToppings);  //assigns phone number as id for pizza object
+   //assigns selected values to keys of object
 
-  console.log(newOrder); 
-  
-  return newOrder;
+  let finalizedOrder = calculateTotal(newOrder);
+
+  console.log(finalizedOrder); 
+
+  return finalizedOrder;
 }
-
-function finalizeOrder(newOrder){  //UI function to take the bult order and output the total sum of all goods. 
-   
-}
-
 
 window.addEventListener("load", function() {
   event.preventDefault(); 
@@ -81,7 +109,5 @@ window.addEventListener("load", function() {
   let beginOrderForm = document.getElementById("beginOrder"); 
   beginOrderForm.addEventListener("submit", createOrder);  
 
-  let finalizeOrderForm = document.getElementById("finalizeOrder"); 
-  finalizeOrderForm.addEventListener("submit", finalizeOrder);
-
-})
+  }
+)}

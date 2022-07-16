@@ -33,7 +33,7 @@
     } //supposed that the customer had selected all of these values in the form, they will be assigned to their respoective keys. 
 
     --PASS-- 
-    
+
   //Calculate Total Function
   describe: Pizza.prototype.calculateTotal 
 
@@ -53,7 +53,7 @@
     toppings: ["specialtyVeggies", "cheese", "bacon"]
     total: 23.48; 
     } 
-
+  
   //Add Tax Function 
   describe: Pizza.prototype.addTax
   test: function should multiply the total property of the pizza object by 8.75% 
