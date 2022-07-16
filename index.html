@@ -10,86 +10,96 @@
   </head>
   <body>
     <div class = "wrapper">
-
       <!--Order Prompt Area-->
       <div id = "header-box">
-        <h3>Welcome to the pizzeria.<h3> 
-        <p>Welcome to the pizzeria, we source the finest ingredients from Europe. <br>
-        All our pizzas are made with the finest ingredients.</p>
+        <h3>
+        Welcome to the pizzeria.
+        <h3>
+        <p>Welcome to the pizzeria, where we source the finest ingredients from Europe. <br>
+          All our pizzas are made with the finest ingredients.
+        </p>
         <!--Begin order area creates an empty pizza object-->
-
+      </div>
+      <div id = "order-form">
         <form id = "beginOrder">
           <label for="phone">Enter your phone number to begin order:</label><br>
           <input type="text" required id="phone" name="phone"><br>
           <div id = "begin-order-button">
-            <button type = "submit" id = "begin-order" value = "begin-order">Begin Order</button>
+            <button id = "begin-order" value = "begin-order">Begin Order</button>
           </div>
-        </form> 
-      </div>
-      
-      <!--Order Form (hidden until user clicks on order now)-->
-      <div id = "order-form">
-        <!--Select Size-->
-        <div id = "select-pizza-size">
-          <p>Choose your size</p>
-          <input type="radio" required id="pizzaSize" name="pizzaSize" value="small">
-          <label for="small">Regular 15" $15.00</label><br>
-          <input type="radio" required id="pizzaSize" name="pizzaSize" value="medium">
-          <label for="medium">Medium 25" $17.50</label><br>
-          <input type="radio" required id="pizzaSize" name="pizzaSize" value="large">
-          <label for="large">Large 30" $20.50</label><br> 
-          <p>- All pizzas come with pepperoni, mozarella cheese, and house veggies free of extra charge -</p>
-        </div> 
-        <!--Select Base-->
-        <div id = "select-pizza-base">
-          <p>Choose your base</p>
-          <input type="radio" required id="pizzaSize" name="pizzaBase" value="tomato">
-          <label for="tomato">Tomato +$0.00</label><br>
-          <input type="radio" required id="pizzaSize" name="pizzaBase" value="pesto">
-          <label for="pesto">Pesto +$3.99</label><br>
-          <input type="radio" required id="pizzaSize" name="pizzaBase" value="cheese">
-          <label for="cheese">Cheese +$4.99</label><br>
-        </div>
-        <!--Select Toppings--> 
-        <div id = "select-pizza-toppings">
-          <div id = "select-pizza-base">
-            <p>Choose your toppings</p>
-            <input type="checkbox" id="mushrooms" name="pizzaTopping" value="mushrooms">
-            <label for="mushrooms">Mushrooms +$1.99</label><br>
-            <input type="checkbox" id="specialtyVeggies" name="pizzaTopping" value="specialtyVeggies">
-            <label for="specialtyVeggies">Specialty Veggies(Based on Season) +$2.50</label><br>
-            <input type="checkbox" id="anchovies" name="pizzaTopping" value="anchovies">
-            <label for="anchovies">Anchovies +$3.99</label><br>
-            <input type="checkbox" id="bacon" name="pizzaTopping" value="bacon">
-            <label for="bacon">Bacon +$3.99</label><br>
-            <input type="checkbox" id="mixMeats" name="pizzaTopping" value="mixMeats">
-            <label for="mixMeats">Specialty Meats (Proscuitto, Honey Ham, Beef) +$4.99</label><br> 
-            <input type="checkbox" id="extraCheese" name="pizzaTopping" value="extraCheese">
-            <label for="extraCheese">Extra Cheese +$1.99</label><br> 
+          <!--Order Form (hidden until user clicks on order now)-->
+          <!--Select Size-->
+          <div id = "selectionArea">
+            <div id = "select-pizza-size">
+              <p>Choose your size</p>
+              <input type="radio" required id="pizzaSize" name="pizzaSize" value="small">
+              <label for="small">Regular 15" $15.00</label><br>
+              <input type="radio" required id="pizzaSize" name="pizzaSize" value="medium">
+              <label for="medium">Medium 25" $17.50</label><br>
+              <input type="radio" required id="pizzaSize" name="pizzaSize" value="large">
+              <label for="large">Large 30" $20.50</label><br> 
+              <p>- All pizzas come with pepperoni, mozarella cheese, and house veggies free of extra charge -</p>
+            </div>
+            <!--Select Base-->
+            <div id = "select-pizza-base">
+              <p>Choose your base</p>
+              <input type="radio" required id="pizzaSize" name="pizzaBase" value="tomato">
+              <label for="tomato">Tomato +$0.00</label><br>
+              <input type="radio" required id="pizzaSize" name="pizzaBase" value="pesto">
+              <label for="pesto">Pesto +$3.99</label><br>
+              <input type="radio" required id="pizzaSize" name="pizzaBase" value="cheese">
+              <label for="cheese">Cheese +$4.99</label><br>
+            </div>
+            <!--Select Toppings--> 
+            <div id = "select-pizza-toppings">
+              <p>Choose your toppings</p>
+              <input type="checkbox" id="mushrooms" name="pizzaTopping" value="mushrooms">
+              <label for="mushrooms">Mushrooms +$1.99</label><br>
+              <input type="checkbox" id="specialtyVeggies" name="pizzaTopping" value="specialtyVeggies">
+              <label for="specialtyVeggies">Specialty Veggies(Based on Season) +$2.50</label><br>
+              <input type="checkbox" id="anchovies" name="pizzaTopping" value="anchovies">
+              <label for="anchovies">Anchovies +$3.99</label><br>
+              <input type="checkbox" id="bacon" name="pizzaTopping" value="bacon">
+              <label for="bacon">Bacon +$3.99</label><br>
+              <input type="checkbox" id="mixMeats" name="pizzaTopping" value="mixMeats">
+              <label for="mixMeats">Specialty Meats (Proscuitto, Honey Ham, Beef) +$4.99</label><br> 
+              <input type="checkbox" id="pizzaTopping" name="pizzaTopping" value="extraCheese">
+              <label for="extraCheese">Extra Cheese +$1.99</label><br> 
+            </div>
           </div>
-        </div>
-        <!--Finalize Order Area (Hidden until all fields are selected)-->
-        <div id = "finalize order area">
-          <form id = "finalizeOrder">
-            <!--Summary of your order-->
-            <h2>Order Summary</h2>
-            <ul> 
-              <p>Pizza Size - </p><p id = "pizzaSize"></p><br>
-              <p>Pizza Base - </p><p id = "pizzaBase"></p><br>
-              <p>Pizza Toppings - </p><p id = "pizzaToppings"></p><br> 
-              <p>CA Sales Tax 8.75% - </p><p id ="salesTax"></p>
-            </ul>
-            <h2>Your Total Is</h2><p id = "orderTotal"></p><br>
-            <div id =  "finish-order-button"> 
-              <button type = "submit" button id = "finish-order" value = "finish-order">Checkout</button><br> 
+          <div id =  "finish-order-button"> 
+            <br>
+            <button type = "submit" button id = "finish-order" value = "finish-order">Finish Order</button>
+            <br> 
           </div>
         </form>
-        </div>
-
       </div>
-
-      <!--Total Area--> 
-
+      <!--Finalize Order Area (Hidden until all fields are selected)-->
+      <div id = "finalize order area">
+        <!--Summary of your order-->
+        <h2>Order Summary</h2>
+        <ul>
+          <p>Pizza Size - </p>
+          <p id = "pizzaSize"></p>
+          <br>
+          <p>Pizza Base - </p>
+          <p id = "pizzaBase"></p>
+          <br>
+          <p>Pizza Toppings - </p>
+          <p id = "pizzaToppings"></p>
+          <br> 
+          <p>CA Sales Tax 8.75% - </p>
+          <p id ="salesTax"></p>
+        </ul>
+        <h2>Your Total Is</h2>
+        <p id = "orderTotal"></p>
+        <br>
+        <div id =  "finish-order-button"> 
+          <button id = "finish-order" value = "finish-order">Checkout</button><br> 
+        </div>
+      </div>
+    </div>
+    <!--Total Area--> 
     </div>
   </body>
 </html>
