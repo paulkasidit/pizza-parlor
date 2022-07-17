@@ -37,56 +37,19 @@ Pizza.prototype.buildOrder = function(size, base, toppings){
 } 
 
 function calculateTotal(Pizza) { 
-  
-  /*switch (true){
-    case Pizza.size: {
-      for (const [key,value] of Object.entries(pizzaSizePrices)){
-        if (Pizza.size === key){
-          Pizza.total += value;
-        } else {
-          Pizza.total += 0; 
-          break; 
-        }
-      }
-    }
-    case Pizza.base: {
-      for (const [key,value] of Object.entries(pizzaBasePrices)){
-        if (Pizza.size === key){
-          Pizza.total += value;
-        } else {
-          Pizza.total += 0; 
-          break; 
-        }
-      }
-    }
-    case Pizza.toppings:{
-      for (const [key,value] of Object.entries(pizzaToppingPrice)){ //determing charges for toppings
-        for (const topping of Object.values(Pizza.toppings)){
-          if (topping === key){
-            Pizza.total += value;
-          } else {
-          Pizza.total += 0;
-          break;  
-    }
-  }}}} */ 
- 
+
+  let total = 15; 
   for (const [key,value] of Object.entries(pizzaSizePrices)){
     if (Pizza.size === key){
-      Pizza.total += value;
-    } else {
-      Pizza.total += 0; 
-    }}
-  
-  for (const [key,value] of Object.entries(pizzaToppingPrice)){ //determing charges for toppings
-      for (const topping of Object.values(Pizza.toppings)){
-        if (topping === key){
-          total += value;
-        } else {
-        Pizza.total += 0;
-      }}}
-
-
-return Pizza.total};
+      total += value;
+    }}  
+  for (const [key,value] of Object.entries(pizzaBasePrices)){
+    if (Pizza.base === key){
+      total += value;
+    }} 
+    
+return total;
+};
 
 //UI Logic 
 function createOrder(event) { //creates Pizza Object with inputted phone number as id,
@@ -125,6 +88,12 @@ window.addEventListener("load", function() {
   let beginOrderForm = document.getElementById("beginOrder");  //order form with details is submitted to backend
   beginOrderForm.addEventListener("submit", createOrder); 
      
+  let beginOrderButton = document.getElementById("begin-order"); //begin-order button at top of form is used to unhide the selection area 
+  beginOrderButton.onclick = function() {
+    let selectionArea = document.getElementById("selectionArea"); 
+    selectionArea.removeAttribute("style"); 
+  };
+
   let beginOrderButton = document.getElementById("begin-order"); //begin-order button at top of form is used to unhide the selection area 
   beginOrderButton.onclick = function() {
     let selectionArea = document.getElementById("selectionArea"); 

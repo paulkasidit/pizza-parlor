@@ -32,8 +32,6 @@ git clone https://github.com/paulkasidit/pizza-parlor
 4. After installation, on the lower right-hand corner of VS Code, there will be a button saying to "Go Live". A live editable version of the website should be automatically opened in your browser.
 5. And that's it!
 
-- You can also visit my webpage directly by clicking [here](https://github.com/paulkasidit/pizza-parlor)
-
 ## Known Bugs
 
 * None!
