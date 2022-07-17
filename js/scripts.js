@@ -37,38 +37,57 @@ Pizza.prototype.buildOrder = function(size, base, toppings){
 } 
 
 function calculateTotal(Pizza) { 
-  const size = Pizza.size;
-  const base = Pizza.base;
-  const toppings = Pizza.toppings;
-  let total = Pizza.total; 
-
-  for (const [key,value] of Object.entries(pizzaSizePrices)){ //determing charges for size
-    if (key === size){
-      total += value; 
-    } else { 
-      total += 0; 
-    }
-  }
-
-  for (const [key,value] of Object.entries(pizzaBasePrices)){ //determing charges for base
-    if (key === base){
-      total += value; 
-    } else { 
-      total += 0; 
-    }
-  }
-
-  for (const [key,value] of Object.entries(pizzaToppingPrice)){ //determing charges for toppings
-    for (topping of toppings){
-      if (topping === key){
-        total += value; 
-      } else {
-        total += 0; 
+  
+  /*switch (true){
+    case Pizza.size: {
+      for (const [key,value] of Object.entries(pizzaSizePrices)){
+        if (Pizza.size === key){
+          Pizza.total += value;
+        } else {
+          Pizza.total += 0; 
+          break; 
+        }
       }
     }
+    case Pizza.base: {
+      for (const [key,value] of Object.entries(pizzaBasePrices)){
+        if (Pizza.size === key){
+          Pizza.total += value;
+        } else {
+          Pizza.total += 0; 
+          break; 
+        }
+      }
+    }
+    case Pizza.toppings:{
+      for (const [key,value] of Object.entries(pizzaToppingPrice)){ //determing charges for toppings
+        for (const topping of Object.values(Pizza.toppings)){
+          if (topping === key){
+            Pizza.total += value;
+          } else {
+          Pizza.total += 0;
+          break;  
+    }
+  }}}} */ 
+ 
+  for (const [key,value] of Object.entries(pizzaSizePrices)){
+    if (Pizza.size === key){
+      Pizza.total += value;
+    } else {
+      Pizza.total += 0; 
+    }}
+  
+  for (const [key,value] of Object.entries(pizzaToppingPrice)){ //determing charges for toppings
+      for (const topping of Object.values(Pizza.toppings)){
+        if (topping === key){
+          total += value;
+        } else {
+        Pizza.total += 0;
+      }}}
 
-  return total; 
-}};
+
+return Pizza.total};
+
 //UI Logic 
 function createOrder(event) { //creates Pizza Object with inputted phone number as id,
                               // upon order form submission, values are assigned to respective properties and total is shown. 
