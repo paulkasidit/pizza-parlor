@@ -13,12 +13,12 @@ const pizzaBasePrices = {
 }
 //dict for pizza toppings
 const pizzaToppingPrice = { 
-  'mushrooms': 1.99, 
+  'mushrooms': 2.50, 
+  'extraCheese': 2.50,
   'specialtyVeggies': 2.50, 
-  'anchovies': 3.99, 
+  'anchovies': 3.99,
   'bacon': 3.99, 
   'mixMeats': 4.99, 
-  'extraCheese': 1.99,
 }
 
 //Object Constructor Function for Pizza object
