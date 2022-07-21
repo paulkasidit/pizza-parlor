@@ -44,3 +44,31 @@
                             toppings: ["specialtyVeggies", "cheese", "bacon"]
                             total: 17.50; 
                             } 
+                            
+  //Calculate Base Total Function
+  describe: Pizza.prototype.calculateBaseCost()
+
+  test: function should use branching statements to alter the total property according to the base property. 
+
+    code: let Pizza.prototype.calculateBaseCost = function() {
+    if (this.base === "pesto"){
+      this.total += 3.99; } else { 
+        this.total += 0; 
+      }
+    };
+
+    let pizza1 = new Pizza {id: 8054444444, 
+                            size: "small", 
+                            base: "pesto", 
+                            toppings: ["specialtyVeggies", "cheese", "bacon"]
+                            total: 15.00; 
+                            } 
+    
+
+    
+    expect: pizza1 = new Pizza {id: 8054444444, 
+                            size: "small", 
+                            base: "pesto", 
+                            toppings: ["specialtyVeggies", "cheese", "bacon"]
+                            total: 18.99; 
+                            } 
