@@ -44,7 +44,7 @@
                             toppings: ["specialtyVeggies", "cheese", "bacon"]
                             total: 17.50; 
                             } 
-                            
+
   //Calculate Base Total Function
   describe: Pizza.prototype.calculateBaseCost()
 
@@ -71,4 +71,32 @@
                             base: "pesto", 
                             toppings: ["specialtyVeggies", "cheese", "bacon"]
                             total: 18.99; 
+                            } 
+  
+    //Calculate Toppings Total Function
+  describe: Pizza.prototype.calculateToppingsCost()
+
+  test: function should add the toppings property array length if an array is present, else nothing is added to the total property. 
+
+    code: let Pizza.prototype.calculateToppingCost = function() {
+    if (this.toppings === -1){
+      this.total += 0; } else { 
+        this.total += this.toppings.length; 
+      }
+    };
+
+    let pizza1 = new Pizza {id: 8054444444, 
+                            size: "small", 
+                            base: "tomato", 
+                            toppings: ["specialtyVeggies", "cheese", "bacon"]
+                            total: 15.00; 
+                            } 
+    
+
+    
+    expect: pizza1 = new Pizza {id: 8054444444, 
+                            size: "small", 
+                            base: "tomato", 
+                            toppings: ["specialtyVeggies", "cheese", "bacon"]
+                            total: 18.00; 
                             } 
