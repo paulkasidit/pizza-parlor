@@ -1,25 +1,4 @@
 //Business Logic 
-  //dict for pizza sizes
-const pizzaSizePrices =  { 
-  'small': 0.00,
-  'medium': 2.50, // full price = 17.50 
-  'large': 5.50, //full price = 20.50
-} 
-//dict for pizza base
-const pizzaBasePrices = { 
-  'tomato': 0.00, 
-  'pesto': 3.99,
-  'cheese': 4.99, 
-}
-//dict for pizza toppings
-const pizzaToppingPrice = { 
-  'mushrooms': 2.50, 
-  'extraCheese': 2.50,
-  'specialtyVeggies': 2.50, 
-  'anchovies': 3.99,
-  'bacon': 3.99, 
-  'mixMeats': 4.99, 
-}
 
 //Object Constructor Function for Pizza object
 function Pizza (phoneNumber, size, base, toppings) { 
@@ -28,6 +7,35 @@ function Pizza (phoneNumber, size, base, toppings) {
   this.base = base; //one possible choice
   this.toppings = []; 
   this.total = 15.00; //base price is 15.00 dollars 
+
+  Pizza.prototype.CalculateSizeCost = function() {
+    if (this.size === "medium"){
+      this.total += 2.50; 
+    } else if (this.size === "large"){
+      this.total += 5.50; 
+    } else {
+      this.total += 0; 
+    }
+  }
+
+  Pizza.prototype.CalculateBaseCost = function() {
+    if (this.base === 'pesto'){
+      this.total += 3.99;
+    } else if (this.base === 'cheese'){
+      this.total += 4.99; 
+    } else {
+      this.total += 0; 
+    }
+  }
+
+  Pizza.prototype.CalculateToppingCost = function() {
+    if (this.toppings.length === -1){
+      this.total += 0; 
+    } else {
+      this.total += this.toppings.length; 
+    }
+  }
+
 } 
 
 
@@ -46,16 +54,11 @@ function createOrder(event) { //creates Pizza Object with inputted phone number 
     selectedToppings.push(topping.value); //checked values are push to the previously declared selectedToppings array. 
   } 
 
-  let newOrder = new Pizza(phoneNumber); //assigns phone number as id for pizza object
-  newOrder.buildOrder(size,base,selectedToppings) //assigns selected values to keys of object
+  let newOrder = new Pizza(phoneNumber, size, base); //assigns phone number as id for pizza object//assigns selected values to keys of object
 
   console.log(newOrder); 
-
-  let finalizedOrder = calculateTotal(newOrder)
-
-  console.log(finalizedOrder); 
   
-  return finalizedOrder;
+  return newOrder;
 }
 
 window.addEventListener("load", function() {
