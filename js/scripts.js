@@ -1,7 +1,7 @@
 //Business Logic 
 
 //Object Constructor Function for Pizza object
-function Pizza (phoneNumber, size, base, toppings) { 
+function Pizza (phoneNumber, size, base) { 
   this.id = phoneNumber;
   this.size = size; //one possible choice
   this.base = base; //one possible choice
@@ -16,6 +16,7 @@ function Pizza (phoneNumber, size, base, toppings) {
     } else {
       this.total += 0; 
     }
+    return this.total;
   }
 
   Pizza.prototype.calculateBaseCost = function() {
@@ -26,6 +27,7 @@ function Pizza (phoneNumber, size, base, toppings) {
     } else {
       this.total += 0; 
     }
+    return this.total;
   }
 
   Pizza.prototype.calculateToppingCost = function() {
@@ -35,7 +37,7 @@ function Pizza (phoneNumber, size, base, toppings) {
       this.total += this.toppings.length; 
     }
   }
-
+  return this.total;
 } 
 
 
@@ -47,40 +49,36 @@ function createOrder(event) { //creates Pizza Object with inputted phone number 
   const phoneNumber = parseInt(document.getElementById('phone').value); 
   const size =  document.querySelector("input[name='pizzaSize']:checked").value;
   const base =  document.querySelector("input[name='pizzaBase']:checked").value;
-  //iterate through all checked boxes in the toppings field
-  let selectedToppings = []; 
-  let toppings = document.querySelectorAll("input[type='checkbox']:checked");
-  for (var topping of toppings){ 
-    selectedToppings.push(topping.value); //checked values are push to the previously declared selectedToppings array. 
-  } 
 
   let newOrder = new Pizza(phoneNumber, size, base); //assigns phone number as id for pizza object//assigns selected values to keys of object
 
-  console.log(newOrder); 
+  let toppings = document.querySelectorAll("input[type='checkbox']:checked");
+  for (var topping of toppings){ 
+   newOrder.toppings.push(topping.value); //checked values are push to the previously declared selectedToppings array. 
+  } 
+
+  newOrder.calculateBaseCost(); 
+  newOrder.calculateSizeCost();
+  newOrder.calculateToppingCost();
+
+  const pizzaTotal = newOrder.total.toFixed(2); 
+
+  document.getElementById("orderTotal").innerText ="$" + pizzaTotal; 
+  document.getElementById("phoneNumber").innerText = phoneNumber; 
   
-  return newOrder;
+  let totalArea = document.getElementById("finalizeOrderArea"); 
+  totalArea.removeAttribute("style");
+
+  return pizzaTotal;
 }
 
 window.addEventListener("load", function() {
 
   event.preventDefault(); 
 
-  let selectionArea = document.getElementById("selectionArea"); //selection area is initially hidden until the user inputs a phone number
-  selectionArea.style.display = "none";   
+  let totalArea = document.getElementById("finalizeOrderArea"); 
+  totalArea.style.display = "none";
 
-  let beginOrderForm = document.getElementById("beginOrder");  //order form with details is submitted to backend
-  beginOrderForm.addEventListener("submit", createOrder); 
-     
-  let beginOrderButton = document.getElementById("begin-order"); //begin-order button at top of form is used to unhide the selection area 
-  beginOrderButton.onclick = function() {
-    let selectionArea = document.getElementById("selectionArea"); 
-    selectionArea.removeAttribute("style"); 
-  };
-
-  let beginOrderButton = document.getElementById("begin-order"); //begin-order button at top of form is used to unhide the selection area 
-  beginOrderButton.onclick = function() {
-    let selectionArea = document.getElementById("selectionArea"); 
-    selectionArea.removeAttribute("style"); 
-  };
-
+  const form  = document.getElementById("beginOrder"); 
+  form.addEventListener("submit",createOrder);
 });

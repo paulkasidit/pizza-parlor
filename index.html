@@ -24,9 +24,6 @@
         <form id = "beginOrder">
           <label for="phone">Enter your phone number to begin order:</label><br>
           <input type="text" required id="phone" name="phone"><br>
-          <div id = "begin-order-button">
-            <button id = "begin-order" value = "begin-order">Begin Order</button>
-          </div>
           <!--Order Form (hidden until user clicks on order now)-->
           <!--Select Size-->
           <div id = "selectionArea">
@@ -54,17 +51,18 @@
             <div id = "select-pizza-toppings">
               <p>Choose your toppings</p>
               <input type="checkbox" id="mushrooms" name="pizzaTopping" value="mushrooms">
-              <label for="mushrooms">Mushrooms +$1.99</label><br>
+              <label for="mushrooms">Mushrooms</label><br>
               <input type="checkbox" id="specialtyVeggies" name="pizzaTopping" value="specialtyVeggies">
-              <label for="specialtyVeggies">Specialty Veggies(Based on Season) +$2.50</label><br>
+              <label for="specialtyVeggies">Specialty Veggies(Based on Season)</label><br>
               <input type="checkbox" id="anchovies" name="pizzaTopping" value="anchovies">
-              <label for="anchovies">Anchovies +$3.99</label><br>
+              <label for="anchovies">Anchovies</label><br>
               <input type="checkbox" id="bacon" name="pizzaTopping" value="bacon">
-              <label for="bacon">Bacon +$3.99</label><br>
+              <label for="bacon">Bacon</label><br>
               <input type="checkbox" id="mixMeats" name="pizzaTopping" value="mixMeats">
-              <label for="mixMeats">Specialty Meats (Proscuitto, Honey Ham, Beef) +$4.99</label><br> 
+              <label for="mixMeats">Specialty Meats (Proscuitto, Honey Ham, Beef)</label><br> 
               <input type="checkbox" id="pizzaTopping" name="pizzaTopping" value="extraCheese">
-              <label for="extraCheese">Extra Cheese +$1.99</label><br> 
+              <label for="extraCheese">Extra Cheese</label><br> 
+              <p>- $1.00 each -</p>
             </div>
           </div>
           <div id =  "finish-order-button"> 
@@ -75,10 +73,13 @@
         </form>
       </div>
       <!--Finalize Order Area (Hidden until all fields are selected)-->
-      <div id = "finalize order area">
+      <div id = "finalizeOrderArea">
         <h2>Your Total Is</h2>
         <p id = "orderTotal"></p>
         <br>
+        <p>Your order details will be texted to:</p><p id = "phoneNumber"></p>
+        <br>
+        <p>It'll be at your doorstep within 20 minutes or your money back.</p>
       </div>
     </div>
     <!--Total Area--> 
