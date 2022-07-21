@@ -8,7 +8,7 @@ function Pizza (phoneNumber, size, base, toppings) {
   this.toppings = []; 
   this.total = 15.00; //base price is 15.00 dollars 
 
-  Pizza.prototype.CalculateSizeCost = function() {
+  Pizza.prototype.calculateSizeCost = function() {
     if (this.size === "medium"){
       this.total += 2.50; 
     } else if (this.size === "large"){
@@ -18,7 +18,7 @@ function Pizza (phoneNumber, size, base, toppings) {
     }
   }
 
-  Pizza.prototype.CalculateBaseCost = function() {
+  Pizza.prototype.calculateBaseCost = function() {
     if (this.base === 'pesto'){
       this.total += 3.99;
     } else if (this.base === 'cheese'){
@@ -28,7 +28,7 @@ function Pizza (phoneNumber, size, base, toppings) {
     }
   }
 
-  Pizza.prototype.CalculateToppingCost = function() {
+  Pizza.prototype.calculateToppingCost = function() {
     if (this.toppings.length === -1){
       this.total += 0; 
     } else {
