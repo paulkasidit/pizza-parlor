@@ -22,19 +22,14 @@ const pizzaToppingPrice = {
 }
 
 //Object Constructor Function for Pizza object
-function Pizza (phoneNumber) { 
+function Pizza (phoneNumber, size, base, toppings) { 
   this.id = phoneNumber;
-  this.size = ""; //one possible choice
-  this.base = ""; //one possible choice
+  this.size = size; //one possible choice
+  this.base = base; //one possible choice
   this.toppings = []; 
   this.total = 15.00; //base price is 15.00 dollars 
 } 
 
-Pizza.prototype.buildOrder = function(size, base, toppings){
-  this.size = size;  
-  this.base = base; 
-  this.toppings.push(toppings);  
-} 
 
 function calculateTotal(Pizza) { 
 
