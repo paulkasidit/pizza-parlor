@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Paul's Pizza</title>
+    <title>the pizzeria</title>
     <script src="js/scripts.js"></script>
     <link rel="stylesheet" href="css/styles.css">
   </head>
@@ -15,7 +15,7 @@
         <h3>
         Welcome to the pizzeria.
         <h3>
-        <p>Welcome to the pizzeria, where we source the finest ingredients from Europe. <br>
+        <p>Welcome to the minimalistic pizzeria, where we source the finest ingredients from Europe. <br>
           All our pizzas are made with the finest ingredients.
         </p>
         <!--Begin order area creates an empty pizza object-->
@@ -23,7 +23,7 @@
       <div id = "order-form">
         <form id = "beginOrder">
           <label for="phone">Enter your phone number to begin order:</label><br>
-          <input type="text" required id="phone" name="phone"><br>
+          <input type="number" required id="phone" name="phone" minlength="9" maxlength="10"><br>
           <!--Order Form (hidden until user clicks on order now)-->
           <!--Select Size-->
           <div id = "selectionArea">
