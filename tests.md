@@ -16,3 +16,31 @@
     toppings: [] (empty arr)
     total: 15.00 (initially set to 15)
   }
+
+  //Calculate Size Total Function
+  describe: Pizza.prototype.calculateSizeCost()
+
+  test: function should use branching statements to alter the total property according to the size property. 
+
+    code: let Pizza.prototype.calculateSizeCost = function() {
+    if (this.size === "medium"){
+      this.total += 2.50; } else { 
+        this.total += 0; 
+      }
+    };
+
+    let pizza1 = new Pizza {id: 8054444444, 
+                            size: "medium", 
+                            base: "tomato", 
+                            toppings: ["specialtyVeggies", "cheese", "bacon"]
+                            total: 15.00; 
+                            } 
+    
+
+
+    expect: pizza1 = new Pizza {id: 8054444444, 
+                            size: "medium", 
+                            base: "tomato", 
+                            toppings: ["specialtyVeggies", "cheese", "bacon"]
+                            total: 17.50; 
+                            } 
