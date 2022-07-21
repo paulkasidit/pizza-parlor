@@ -31,21 +31,6 @@ function Pizza (phoneNumber, size, base, toppings) {
 } 
 
 
-function calculateTotal(Pizza) { 
-
-  let total = 15; 
-  for (const [key,value] of Object.entries(pizzaSizePrices)){
-    if (Pizza.size === key){
-      total += value;
-    }}  
-  for (const [key,value] of Object.entries(pizzaBasePrices)){
-    if (Pizza.base === key){
-      total += value;
-    }} 
-    
-return total;
-};
-
 //UI Logic 
 function createOrder(event) { //creates Pizza Object with inputted phone number as id,
                               // upon order form submission, values are assigned to respective properties and total is shown. 
